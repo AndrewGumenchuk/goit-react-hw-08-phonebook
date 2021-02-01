@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contacts/contacts-actions';
-import { getContacts } from '../../redux/contacts/contacts-selectors';
-import Cleave from 'cleave.js/react';
+import { contactsOperations, contactsSelectors } from '../../redux/contacts';
 import { toast } from 'react-toastify';
+import NumberFormat from 'react-number-format';
+import Button from '@material-ui/core/Button';
+import LoaderComponent from '../LoaderComponent';
 import s from './ContactForm.module.css';
 
 function ContactForm() {
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(contactsSelectors.getContacts);
+  const isLoading = useSelector(contactsSelectors.getLoading);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
@@ -43,10 +45,6 @@ function ContactForm() {
     return name.trim() === '' || number.trim() === '';
   };
 
-  const checkValidNumber = number => {
-    return !/\d{3}[-]\d{2}[-]\d{2}/g.test(number);
-  };
-
   const handleSubmit = e => {
     e.preventDefault();
     if (checkRepeatName(name)) {
@@ -78,14 +76,16 @@ function ContactForm() {
           name="name"
           value={name}
           onChange={handleChange}
-          placeholder="Please write name"
+          placeholder="Enter name"
         />
       </label>
       <label className={s.label}>
         Number
-        <Cleave
-          options={{ delimiter: '-', blocks: [3, 2, 2] }}
-          placeholder="111-11-11"
+        <NumberFormat
+          placeholder="Enter phone number"
+          format="(###) ###-##-##"
+          mask="_"
+          pattern="^[0-9\s\(\)\-]{15}"
           type="tel"
           name="number"
           value={number}
@@ -93,9 +93,19 @@ function ContactForm() {
           className={s.input}
         />
       </label>
-      <button className={s.btn} type="submit">
-        Add contact
-      </button>
+
+      {!isLoading && (
+        <Button
+          variant="contained"
+          color="secondary"
+          size="large"
+          type="submit"
+        >
+          Add contact
+        </Button>
+      )}
+
+      {isLoading && <LoaderComponent />}
     </form>
   );
 }

@@ -1,0 +1,8 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 5px solid;
+  border-image: linear-gradient(to right, #266dbe, #a8eeff, #ffe600, #fffda5)
+    50% 0%;
+}
