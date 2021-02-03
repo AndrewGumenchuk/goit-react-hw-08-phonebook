@@ -45,7 +45,7 @@ export default function LoginView() {
       <TextField
         label="Email"
         variant="outlined"
-        color=""
+        color=" "
         type="email"
         name="email"
         value={email}
