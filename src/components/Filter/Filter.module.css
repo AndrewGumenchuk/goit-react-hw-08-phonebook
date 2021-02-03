@@ -18,5 +18,5 @@
 }
 
 .input:focus {
-  outline-color: var(--accentColor);
+  outline-color: var(--secondaryTextColor);
 }

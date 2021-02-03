@@ -33,7 +33,7 @@ export default function LoginView() {
   const handleSubmit = e => {
     e.preventDefault();
     if (email.trim() === '' || password.trim() === '') {
-      return toast.error('Please fill all fields!');
+      return toast.error('Please fill in all fields!');
     }
     dispatch(authOperations.logIn({ email, password }));
     setEmail('');
@@ -45,7 +45,7 @@ export default function LoginView() {
       <TextField
         label="Email"
         variant="outlined"
-        color="secondary"
+        color=""
         type="email"
         name="email"
         value={email}
@@ -56,7 +56,7 @@ export default function LoginView() {
       <TextField
         label="Password"
         variant="outlined"
-        color="secondary"
+        color=""
         type="password"
         name="password"
         value={password}
@@ -67,7 +67,7 @@ export default function LoginView() {
       {!isLoading && (
         <Button
           variant="contained"
-          color="secondary"
+          color=""
           size="large"
           type="submit"
         >

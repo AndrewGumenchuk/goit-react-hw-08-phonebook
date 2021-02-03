@@ -3,6 +3,6 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 5px solid;
-  border-image: linear-gradient(to right, #266dbe, #a8eeff, #ffe600, #fffda5)
-    50% 0%;
+  border-image: linear-gradient(to right, #a8eeff, #81e3fc, #81e3fc, #a8eeff)
+    20% 0%;
 }

@@ -18,7 +18,7 @@ const HomeView = () => {
           transition="transition"
           variants={variants}
         >
-          Welcome!
+         Greetings!
         </motion.h1>
       </AnimatePresence>
       <AnimatePresence>
@@ -30,7 +30,6 @@ const HomeView = () => {
           transition="transition"
           variants={variants}
         >
-          Now you will not forget your contacts!
         </motion.p>
       </AnimatePresence>
       {!isLoggedIn && (

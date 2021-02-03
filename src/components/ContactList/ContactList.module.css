@@ -37,5 +37,5 @@
 
 .btn:hover,
 .btn:focus {
-  transform: skew(1.1);
+  transform: scale(1.1);
 }

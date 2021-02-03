@@ -57,7 +57,7 @@ export const logIn = credentials => async dispatch => {
     dispatch(loginSuccess(response.data));
   } catch (error) {
     dispatch(loginError(error));
-    toast.error('Invalid email or password! Try again!');
+    toast.error('Invalid email or password! Please Try again!');
   }
 };
 
