@@ -95,7 +95,7 @@ function ContactForm() {
       {!isLoading && (
         <Button
           variant="contained"
-          color="active"
+          color="secondary"
           size="large"
           type="submit"
         >

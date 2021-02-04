@@ -45,7 +45,7 @@ export default function LoginView() {
       <TextField
         label="Email"
         variant="outlined"
-        color="active"
+        color=""
         type="email"
         name="email"
         value={email}
@@ -56,7 +56,7 @@ export default function LoginView() {
       <TextField
         label="Password"
         variant="outlined"
-        color="active"
+        color=""
         type="password"
         name="password"
         value={password}
@@ -67,7 +67,7 @@ export default function LoginView() {
       {!isLoading && (
         <Button
           variant="contained"
-          color="active"
+          color="secondary"
           size="large"
           type="submit"
         >
